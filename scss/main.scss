@@ -10,12 +10,16 @@ $font-weights: (
     "bold": 700
 );
 
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
 body {
     background: $primary-color;
     color: $text-color;
 }
 
-.main {
+.first {
     width: 80%;
     margin: 0 auto;
 
@@ -23,13 +27,17 @@ body {
     $padding-settings: 10px;
 
     //nesting 
-    .top-paragraph {
+    .first-top-paragraph {
         padding: $padding-settings;
+        //uses function to set font-weight 
+        //instead of 'font-weight: map-get($font-weights, bold);'
+        font-weight: weight(bold);
+
     }
 
-    //shortcut: .main-paragraph -INSTEAD USE- &-paragraph 
+    //shortcut: .first-main-paragraph -INSTEAD USE- &-main-paragraph 
     //& === parent
-    &-paragraph {
+    &-main-paragraph {
         font-weight: map-get($font-weights, bold);
         color: blue;
         padding: $padding-settings;
@@ -38,4 +46,30 @@ body {
             color: $text-color;
         }
     }
+}
+
+//mixin
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+//mixin with parameter
+@mixin flexItem($borderColor) {
+    border: 3px solid $borderColor;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.second {
+  
+    @include flex;
+
+    p {
+        @include flexItem(blue)
+    }
+        
 }
