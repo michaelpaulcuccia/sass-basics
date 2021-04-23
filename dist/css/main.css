@@ -1,4 +1,31 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: gray;
+  background: #272727;
+  color: #fff;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main .top-paragraph {
+  padding: 10px;
+}
+
+.main-paragraph {
+  font-weight: 700;
+  color: blue;
+  padding: 10px;
+}
+
+.main-paragraph:hover {
+  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */

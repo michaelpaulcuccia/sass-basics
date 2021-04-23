@@ -1,3 +1,41 @@
+//partials - use underscore to name file but not when importing
+@import 'variables';
+@import 'resets';
+
+//map
+//use 'map-get(var, key)'
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+
 body {
-    background: gray;
+    background: $primary-color;
+    color: $text-color;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+
+    //define a variable within the scope of .main
+    $padding-settings: 10px;
+
+    //nesting 
+    .top-paragraph {
+        padding: $padding-settings;
+    }
+
+    //shortcut: .main-paragraph -INSTEAD USE- &-paragraph 
+    //& === parent
+    &-paragraph {
+        font-weight: map-get($font-weights, bold);
+        color: blue;
+        padding: $padding-settings;
+
+        &:hover {
+            color: $text-color;
+        }
+    }
 }
