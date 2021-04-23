@@ -5,3 +5,5 @@
 - Maps
 - Nesting
 - Partials
+- Mixins
+- Extensions

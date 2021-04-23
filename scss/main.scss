@@ -14,9 +14,20 @@ $font-weights: (
     @return map-get($font-weights, $weight-name);
 }
 
+//mixin
+@mixin mobile {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
+
 body {
     background: $primary-color;
     color: $text-color;
+
+    @include mobile {
+        background: yellow;
+    }
 }
 
 .first {
@@ -63,7 +74,6 @@ body {
     padding: 5px;
 }
 
-
 .second {
   
     @include flex;
@@ -72,4 +82,35 @@ body {
         @include flexItem(blue)
     }
         
+}
+
+//mixin
+@mixin theme($light-theme: true) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+.third {
+    @include theme($light-theme: true);
+}
+
+.fourth {
+    margin: 10px auto;
+    padding: 15px;
+
+    .fourth-1 {
+        color: red;
+        font-weight: map-get($font-weights, bold);
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+
+    //extension
+    .fourth-2 {
+        @extend .fourth-1;
+        font-style: normal;
+    }
+
 }

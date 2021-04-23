@@ -10,6 +10,12 @@ body {
   color: #fff;
 }
 
+@media (max-width: 500px) {
+  body {
+    background: yellow;
+  }
+}
+
 .first {
   width: 80%;
   margin: 0 auto;
@@ -47,5 +53,26 @@ body {
   border: 3px solid blue;
   margin: 5px;
   padding: 5px;
+}
+
+.third {
+  background: white;
+  color: black;
+}
+
+.fourth {
+  margin: 10px auto;
+  padding: 15px;
+}
+
+.fourth .fourth-1, .fourth .fourth-2 {
+  color: red;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.fourth .fourth-2 {
+  font-style: normal;
 }
 /*# sourceMappingURL=main.css.map */
